@@ -1,0 +1,2 @@
+queries:
+  - uses: ./codeql-custom-queries-javascript/incorrect-aws-credentials.ql
