@@ -1,9 +1,11 @@
 /**
- * This is an automatically generated file
- * @name Hello world
+ * @name Improper AWS Credentials
  * @kind problem
  * @problem.severity warning
- * @id javascript/example/hello-world
+ * @id javascript/actions/improper-aws-credentials
+ * @tags actions
+ *       security
+ *       experimental
  */
 
  import javascript
@@ -19,5 +21,4 @@
  workflow.getFileName() = file and
  with.getStep() = step and
  with.lookup("aws-access-key-id") = accesskey
- select step, "AWS-ACCESS_KEY_ID used as AWS credential. Action '" + uses.getGitHubRepository() + "' in ' step $@ ' uses aws-access-key-id, not an OIDC token", step, step.toString()
- 
+ select step, "AWS_ACCESS_KEY_ID used as AWS credential instead of OIDC in Action '" + uses.getGitHubRepository() + "' in step '$@' in file " + file, step, step.toString()
